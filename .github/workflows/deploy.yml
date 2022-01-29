@@ -23,7 +23,6 @@ jobs:
         port:         ${{ secrets.SSH_PORT }}
         passphrase:   ${{ secrets.SSH_PASSPHRASE }}
         fingerprint:  ${{ secrets.SSH_FINGERPRINT }}
-        script: ls
-#    - name: Test with pytest
-#      run: |
-#        pytest
+        script: |
+          cd flask-docker-test
+          git pull
