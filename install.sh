@@ -30,7 +30,8 @@ git clone git@github.com:gu1lhem/flask-docker-test.git
 cd flask-docker-test/
 
 echo "Copie du ficher de configuration nginx..."
-sudo cp flask-docker-test.conf /etc/nginx/conf.d/
+sudo cp ./flask-docker-test.conf /etc/nginx/conf.d/
+sudo nginx -s reload
 
 # Pour build :
 # cd dans flask-docker-test puis :
