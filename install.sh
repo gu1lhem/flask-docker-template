@@ -48,3 +48,4 @@ docker-compose up
 # From :
 # https://blog.miguelgrinberg.com/post/how-to-dockerize-a-react-flask-project
 # https://www.toptal.com/flask/flask-production-recipes
+# https://techoverflow.net/2020/10/24/create-a-systemd-service-for-your-docker-compose-project-in-10-seconds/
