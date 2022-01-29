@@ -45,6 +45,11 @@ docker-compose up
 
 # Pour installer un service systemd, lancer sudo chmod +x ./systemd.sh && sudo ./systemd.sh
 
+
+# Autoriser l'utilisateur à exécuer la commande restart pour ce service.
+echo "Copiez ceci dans `sudo visudo` pour permettre le redémarrage automatique du service."
+echo $(whoami)" ALL=NOPASSWD /bin/systemctl restart "$(basename $(pwd))".service"
+
 # From :
 # https://blog.miguelgrinberg.com/post/how-to-dockerize-a-react-flask-project
 # https://www.toptal.com/flask/flask-production-recipes
