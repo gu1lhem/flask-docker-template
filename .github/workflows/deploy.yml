@@ -26,3 +26,4 @@ jobs:
         script: |
           cd flask-docker-test
           git pull
+          sudo /bin/systemctl restart flask-docker-test.service
