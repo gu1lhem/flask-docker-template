@@ -35,7 +35,16 @@ sudo nginx -s reload
 
 # Pour build :
 # cd dans flask-docker-test puis :
-docker build -f Dockerfile -t react-flask-app-api .
+#docker build -f Dockerfile -t react-flask-app-api .
 
 # Pour run :
-docker run --rm -p 5000:5000 react-flask-app-api
+#docker run --rm -p 5000:5000 react-flask-app-api
+
+# Avec docker-compose :
+docker-compose up
+
+# Pour installer un service systemd, lancer ./systemd.sh
+
+# From :
+# https://blog.miguelgrinberg.com/post/how-to-dockerize-a-react-flask-project
+# https://www.toptal.com/flask/flask-production-recipes
