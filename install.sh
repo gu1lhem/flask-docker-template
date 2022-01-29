@@ -2,7 +2,7 @@
 
 # Pour le dépôt, il faut créer une paire de clés (voir https://github.com/appleboy/ssh-action)
 # Et exécuter 
-ssh "example.com" ssh-keygen -l -f /etc/ssh/ssh_host_ed25519_key.pub | cut -d ' ' -f2
+ssh-keygen -l -f /etc/ssh/ssh_host_ecdsa_key.pub | cut -d ' ' -f2
 # sur la machine pour obtenir la fingerprint (mettre tout le résultat de la commande comme secret).
 # puis ajouter la clé publique au fichier .ssh/authorized_keys.
 
