@@ -43,7 +43,7 @@ sudo nginx -s reload
 # Avec docker-compose :
 docker-compose up
 
-# Pour installer un service systemd, lancer ./systemd.sh
+# Pour installer un service systemd, lancer sudo chmod +x ./systemd.sh && sudo ./systemd.sh
 
 # From :
 # https://blog.miguelgrinberg.com/post/how-to-dockerize-a-react-flask-project
