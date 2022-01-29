@@ -4,7 +4,7 @@ key_file="id_rsa"
 
 # Install Docker and Nginx
 apt update
-sudo apt install docker.io nginx -y
+sudo apt install docker.io docker-compose nginx -y
 
 # Create usergroup for Docker to be executed without root
 sudo usermod -a -G docker $USER
@@ -27,11 +27,14 @@ ssh -T git@github.com
 cd ~
 git clone git@github.com:gu1lhem/flask-docker-test.git
 
-
 cd flask-docker-test/
+
+echo "Copie du ficher de configuration nginx..."
+sudo cp flask-docker-test.conf /etc/nginx/conf.d/
+
 # Pour build :
 # cd dans flask-docker-test puis :
-docker build -f Dockerfile.api -t react-flask-app-api .
+docker build -f Dockerfile -t react-flask-app-api .
 
 # Pour run :
 docker run --rm -p 5000:5000 react-flask-app-api
