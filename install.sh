@@ -1,5 +1,7 @@
 #!/bin/bash
 
+key_file="id_rsa"
+
 # Install Docker and Nginx
 apt update
 sudo apt install docker.io nginx -y
@@ -13,8 +15,12 @@ newgrp docker
 ssh-keygen
 eval "$(ssh-agent -s)"
 # Ne pas spécifier de mot de passe
-cat .ssh/id_rsa
+cat .ssh/$key_file.pub
 # Ajouter la clé à Github
+
+echo "Host github.com" >> .ssh/config
+echo "   IdentityFile ~/.ssh/"$key_file >> .ssh/config
+
 ssh -T git@github.com
 
 # Clonage
