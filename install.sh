@@ -1,12 +1,18 @@
 #!/bin/bash
 
+# Cléé SSH pour récupérer le dépôt Git.
+key_file="flask-docker-test"
+
 # Pour le dépôt, il faut créer une paire de clés (voir https://github.com/appleboy/ssh-action)
 # Et exécuter 
+echo "Créez une paire de clé pour github-actions et notez le mot de passe."
+ssh-keygen -f .ssh/github-actions
+
+echo "Copiez le figerprint pour le mettre dans les secrets de Actions."
 ssh-keygen -l -f /etc/ssh/ssh_host_ecdsa_key.pub | cut -d ' ' -f2
 # sur la machine pour obtenir la fingerprint (mettre tout le résultat de la commande comme secret).
 # puis ajouter la clé publique au fichier .ssh/authorized_keys.
-
-key_file="flask-docker-test"
+read  -n 1 -p "Appuyez sur n'importe quelle touche pour continuer"
 
 # Install Docker and Nginx
 sudo apt update
@@ -53,6 +59,11 @@ docker-compose up
 # Pour installer un service systemd :
 chmod +x ./systemd.sh
 sudo ./systemd.sh
+
+# Installation des certificats SSL
+sudo snap install --classic certbot
+sudo ln -s /snap/bin/certbot /usr/bin/certbot
+sudo certbot --nginx
 
 
 # Autoriser l'utilisateur à exécuer la commande restart pour ce service.
